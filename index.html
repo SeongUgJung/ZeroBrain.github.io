@@ -1,13 +1,17 @@
 ---
 layout: page
 title:
-subtitle: 
+subtitle:
 ---
 
 <div class="posts-list">
   {% for post in paginator.posts %}
   <article class="post-preview">
+    {% if post.substitute %}
+    <a href="{{ post.substitute }}" target="_blank">
+    {% else %}
     <a href="{{ post.url | prepend: site.baseurl }}">
+    {% endif %}
 	  <h2 class="post-title">{{ post.title }}</h2>
 
 	  {% if post.subtitle %}
